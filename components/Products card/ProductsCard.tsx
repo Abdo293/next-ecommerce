@@ -199,10 +199,11 @@ export const ProductsCard: React.FC<IProduct> = ({
                           </div>
                         </div>
                         <p className="text-[15px] leading-[1.7] mb-[20px] text-gray-600">
-                          It complies with Microsoft's Open Office criteria and
-                          is specially tuned for outstanding conversations in
-                          open-plan workplaces and other loud environments when
-                          the microphone boom arm is lowered in Performance Mode
+                          It complies with Microsoft&apos;s Open Office criteria
+                          and is specially tuned for outstanding conversations
+                          in open-plan workplaces and other loud environments
+                          when the microphone boom arm is lowered in Performance
+                          Mode
                         </p>
                         <p className="text-xl font-medium mb-[20px]">
                           ${viewProductData.price}
