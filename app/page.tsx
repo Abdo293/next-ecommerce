@@ -1,113 +1,118 @@
-import Image from "next/image";
+import { BackgroundHome } from "@/components/Home/BackgroundHome";
+import { Categories } from "@/components/Home/Categories";
+import { ReactNode } from "react";
+import { FaTruckFast } from "react-icons/fa6";
+import { TbCurrencyDollar } from "react-icons/tb";
+import { CiDiscount1 } from "react-icons/ci";
+import { MdHeadphones } from "react-icons/md";
+import { TrendingProducts } from "@/components/Home/TrendingProducts";
+import { Features } from "@/components/Home/Features";
+import { Button } from "@/components/ui/button";
+import { FaArrowRight } from "react-icons/fa6";
+import Link from "next/link";
+import { Deal } from "@/components/Home/Deal";
+import { ComputeSection } from "@/components/Home/ComputeSection";
+import { TabSection } from "@/components/Home/TabSection";
+import { TopProducts } from "@/components/Home/TopProducts";
+import { NewArrivals } from "@/components/Home/NewArrivals";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <div className="home">
+      <BackgroundHome />
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+      <Categories />
+
+      <div className="grid xl:grid-cols-4 lg:grid-cols-2 max-md:grid-cols-1 container mx-auto gap-3">
+        <Features
+          icon={
+            <FaTruckFast className="h-[2.5rem] w-[2.5rem] text-[#fd4b6b]" />
+          }
+          title={"Free Delivery"}
+          description={"Orders from all item"}
+        />
+        <Features
+          icon={
+            <TbCurrencyDollar className="h-[2.5rem] w-[2.5rem] text-[#fd4b6b]" />
+          }
+          title={"Return & Refund"}
+          description={"Money-back guarantee"}
+        />
+        <Features
+          icon={
+            <CiDiscount1 className="h-[2.5rem] w-[2.5rem] text-[#fd4b6b]" />
+          }
+          title={"Member Discount"}
+          description={"Every order over $140.00"}
+        />
+        <Features
+          icon={
+            <MdHeadphones className="h-[2.5rem] w-[2.5rem] text-[#fd4b6b]" />
+          }
+          title={"Support 24/7"}
+          description={"Contact us 24 hours a day"}
         />
       </div>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+      <TrendingProducts />
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+      <div className="container mx-auto py-8 pt-16 flex gap-5 max-md:flex-col">
+        <div className="sale-home relative w-[65%] max-md:w-full">
+          <div className="h-[280px]">
+            <img
+              src="/tab.jpg"
+              alt="bg"
+              className="object-cover rounded w-full h-full"
+            />
+          </div>
+          <div className="absolute left-8 top-1/2 transform -translate-y-1/2 flex flex-col items-start">
+            <p className="text-[18px]">Sale 20% off all store</p>
+            <Link
+              href={"/"}
+              className="text-[28px] font-bold leading-[1.29] pt-2 transition-colors duration-500 hover:text-[#0c55aa]"
+            >
+              Smartphone <br /> BLU G91 Pro 2022
+            </Link>
+            <Button className="pl-0 mt-2 btn">
+              <span className="pr-1">Shop Now</span>{" "}
+              <FaArrowRight className="arrow-right" />
+            </Button>
+          </div>
+        </div>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+        <div className="w-[35%] h-full relative max-md:w-full">
+          <div className="h-[280px]">
+            <img
+              src="/headphone.jpg"
+              alt="bg"
+              className="w-full object-cover rounded h-full"
+            />
+          </div>
+          <div className="absolute left-8 top-1/2 transform -translate-y-1/2 flex flex-col items-start">
+            <p className="text-[18px]">Sale 20% off all store</p>
+            <Link
+              href={"/"}
+              className="text-[28px] font-bold leading-[1.29] pt-2 transition-colors duration-500 hover:text-[#0c55aa]"
+            >
+              HyperX Cloud || <br></br> Wireless
+            </Link>
+            <Button className="pl-0 mt-2 btn">
+              <span className="pr-1">Shop Now</span>{" "}
+              <FaArrowRight className="arrow-right" />
+            </Button>
+          </div>
+        </div>
       </div>
-    </main>
+
+      <Deal />
+
+      <ComputeSection />
+
+      <TabSection />
+
+      <NewArrivals />
+
+      <TopProducts />
+    </div>
   );
 }
