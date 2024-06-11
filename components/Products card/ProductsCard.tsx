@@ -20,6 +20,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { TiMinus } from "react-icons/ti";
 import { TiPlus } from "react-icons/ti";
 import { selectProduct } from "@/store/productDetailsSlice";
+import { addFavorite, removeFavorite } from "@/store/favoritesSlice";
+import { addCompare, removeCompare } from "@/store/compareSlice";
 
 interface IProduct extends IProducts {
   children?: ReactNode;
@@ -62,16 +64,43 @@ export const ProductsCard: React.FC<IProduct> = ({
   children,
 }) => {
   const dispatch = useDispatch();
+  /* wish list */
+  const wishlist = useSelector((state: any) => state.favorites?.favorites);
+  const isFavorite = wishlist.some((product: ICart) => product.id === id);
+
+  const handleToggleFavorite = () => {
+    if (isFavorite) {
+      dispatch(removeFavorite(id));
+    } else {
+      dispatch(addFavorite({ id, img, title, price, quantity }));
+    }
+  };
+  /* end wish list */
+
+  // compare
+  const compare = useSelector((state: any) => state.compare.compare);
+  const isCompare = compare.some((product: ICart) => product.id === id);
+
+  const handleToggleCompare = () => {
+    if (isCompare) {
+      dispatch(removeCompare(id));
+    } else {
+      dispatch(addCompare({ id, img, title, price, quantity }));
+    }
+  };
+  // end compare
 
   const handleAddToCart = (quantity: number) => {
-    const productToAdd: ICart = {
-      id,
-      img,
-      title,
-      price,
-      quantity,
-    };
-    dispatch(addToCart(productToAdd));
+    if (quantity > 0) {
+      const productToAdd: ICart = {
+        id,
+        img,
+        title,
+        price,
+        quantity,
+      };
+      dispatch(addToCart(productToAdd));
+    }
   };
 
   const selectedProduct = useSelector(
@@ -148,10 +177,17 @@ export const ProductsCard: React.FC<IProduct> = ({
           </div>
 
           <div className="absolute right-0 bottom-12 flex flex-col justify-center items-center rounded w-0 overflow-hidden bg-white icons">
-            <MyTooltip
-              icon={<IoGitCompareOutline className="text-2xl" />}
-              txt="Add to compare"
-            />
+            <Button
+              onClick={handleToggleCompare}
+              className={
+                isCompare ? `bg-[#0C55AA] text-white` : "bg-white text-black"
+              }
+            >
+              <MyTooltip
+                icon={<IoGitCompareOutline className="text-2xl" />}
+                txt="Add to compare"
+              />
+            </Button>
 
             <Dialog>
               <DialogTrigger asChild>
@@ -249,10 +285,17 @@ export const ProductsCard: React.FC<IProduct> = ({
               </DialogContent>
             </Dialog>
 
-            <MyTooltip
-              icon={<IoHeartOutline className="text-2xl" />}
-              txt="Add to wishlist"
-            />
+            <Button
+              onClick={handleToggleFavorite}
+              className={
+                isFavorite ? `bg-[#0C55AA] text-white` : "bg-white text-black"
+              }
+            >
+              <MyTooltip
+                icon={<IoHeartOutline className="text-2xl" />}
+                txt="Add to wishlist"
+              />
+            </Button>
           </div>
         </div>
 

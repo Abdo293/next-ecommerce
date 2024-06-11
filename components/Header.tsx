@@ -5,7 +5,6 @@ import { Input } from "@/components/ui/input";
 import { CiSearch } from "react-icons/ci";
 import { FaRegUser } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa6";
-import { TbShoppingBag } from "react-icons/tb";
 import { BsTelephone } from "react-icons/bs";
 import { IoGitCompareSharp } from "react-icons/io5";
 import { Badge } from "@/components/ui/badge";
@@ -14,6 +13,7 @@ import { DrawerLinks } from "./Drawer";
 import { CategoryDropdown } from "./CategoryDropdown";
 import { useEffect } from "react";
 import { Cart } from "./cart/Cart";
+import { useSelector } from "react-redux";
 
 export const Header = () => {
   useEffect(() => {
@@ -35,6 +35,10 @@ export const Header = () => {
       window.removeEventListener("scroll", windowScroll);
     };
   }, []);
+
+  const wishlist = useSelector((state: any) => state.favorites?.favorites);
+
+  const compare = useSelector((state: any) => state.compare.compare);
 
   return (
     <div>
@@ -78,16 +82,20 @@ export const Header = () => {
             </div>
             <div className="flex items-center gap-5">
               <div className="relative">
-                <IoGitCompareSharp className="text-2xl hover:text-[#0c55aa] transition-all duration-500 cursor-pointer" />
-                <Badge className="absolute top-[-13px] right-[-12px] border-2 border-white w-[15px] text-white bg-[#0c55aa] flex justify-center items-center">
-                  0
-                </Badge>
+                <Link href={"/compare"}>
+                  <IoGitCompareSharp className="text-2xl hover:text-[#0c55aa] transition-all duration-500 cursor-pointer" />
+                  <Badge className="absolute top-[-13px] right-[-12px] border-2 border-white w-[15px] text-white bg-[#0c55aa] flex justify-center items-center">
+                    {compare?.length > 0 ? compare?.length : 0}
+                  </Badge>
+                </Link>
               </div>
               <div className="relative">
-                <FaRegHeart className="text-2xl hover:text-[#0c55aa] transition-all duration-500 cursor-pointer" />
-                <Badge className="absolute top-[-13px] right-[-12px] border-2 border-white w-[15px] text-white bg-[#0c55aa] flex justify-center items-center">
-                  0
-                </Badge>
+                <Link href={"/wishlist"}>
+                  <FaRegHeart className="text-2xl hover:text-[#0c55aa] transition-all duration-500 cursor-pointer" />
+                  <Badge className="absolute top-[-13px] right-[-12px] border-2 border-white w-[15px] text-white bg-[#0c55aa] flex justify-center items-center">
+                    {wishlist?.length > 0 ? wishlist?.length : 0}
+                  </Badge>
+                </Link>
               </div>
               <div>
                 <Cart />
@@ -189,16 +197,20 @@ export const Header = () => {
           </ul>
           <div className="flex items-center gap-5">
             <div className="relative">
-              <IoGitCompareSharp className="text-2xl hover:text-[#0c55aa] transition-all duration-500 cursor-pointer" />
-              <Badge className="absolute top-[-13px] right-[-12px] border-2 border-white w-[15px] text-white bg-[#0c55aa] flex justify-center items-center">
-                0
-              </Badge>
+              <Link href={"/compare"}>
+                <IoGitCompareSharp className="text-2xl hover:text-[#0c55aa] transition-all duration-500 cursor-pointer" />
+                <Badge className="absolute top-[-13px] right-[-12px] border-2 border-white w-[15px] text-white bg-[#0c55aa] flex justify-center items-center">
+                  {compare?.length > 0 ? compare?.length : 0}
+                </Badge>
+              </Link>
             </div>
             <div className="relative">
-              <FaRegHeart className="text-2xl hover:text-[#0c55aa] transition-all duration-500 cursor-pointer" />
-              <Badge className="absolute top-[-13px] right-[-12px] border-2 border-white w-[15px] text-white bg-[#0c55aa] flex justify-center items-center">
-                0
-              </Badge>
+              <Link href={"/wishlist"}>
+                <FaRegHeart className="text-2xl hover:text-[#0c55aa] transition-all duration-500 cursor-pointer" />
+                <Badge className="absolute top-[-13px] right-[-12px] border-2 border-white w-[15px] text-white bg-[#0c55aa] flex justify-center items-center">
+                  {wishlist?.length > 0 ? wishlist?.length : 0}
+                </Badge>
+              </Link>
             </div>
             <div>
               <Cart />

@@ -86,6 +86,16 @@ export const dealOfTheDay: IProducts[] = [
     type: "top reated",
     badge: "hot",
   },
+  {
+    id: 5,
+    img: "/product-7-600x600.jpg",
+    cat: "StarKist",
+    title: "Sony HT-A9 Home Theater System",
+    price: 294.0,
+    reviews: 8,
+    type: "top reated",
+    badge: "hot",
+  },
 ];
 
 export const categories: ICategories[] = [
