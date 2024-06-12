@@ -36,14 +36,12 @@ const Compare = () => {
   return (
     <div className="container mx-auto my-10 max-[992px]:mt-[115px]">
       <div className="overflow-x-auto">
-        <table className="w-[1268px]">
+        <table className="max-w-[1350px] w-full">
           <tbody>
             {compare.length ? (
               tabelHead.map((header, index) => (
                 <tr key={index} className="text-center">
-                  <th className="border px-4 py-2 text-center sticky">
-                    {header}
-                  </th>
+                  <th className="border px-4 py-2 text-center">{header}</th>
                   {compare.map((item: any, idx: number) => (
                     <td key={idx} className="border px-4 py-2">
                       <div className="flex flex-col items-center">

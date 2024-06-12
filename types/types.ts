@@ -34,3 +34,13 @@ interface ICategories {
   count: string;
   link: string;
 }
+
+interface IStore {
+  id: number;
+  title: string;
+  reviews: number;
+  location: string;
+  phone: string;
+  email: string;
+  img: string;
+}

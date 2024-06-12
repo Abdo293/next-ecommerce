@@ -127,13 +127,8 @@ export const Header = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href={"/"} className="font-bold text-sm">
+                  <Link href={"/vendors"} className="font-bold text-sm">
                     Vendors
-                  </Link>
-                </li>
-                <li>
-                  <Link href={"/"} className="font-bold text-sm">
-                    Blog
                   </Link>
                 </li>
                 <li>
@@ -180,13 +175,8 @@ export const Header = () => {
               </Link>
             </li>
             <li>
-              <Link href={"/"} className="font-bold text-sm">
+              <Link href={"/vendors"} className="font-bold text-sm">
                 Vendors
-              </Link>
-            </li>
-            <li>
-              <Link href={"/"} className="font-bold text-sm">
-                Blog
               </Link>
             </li>
             <li>

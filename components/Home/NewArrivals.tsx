@@ -4,6 +4,16 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "./styles.css";
 import { Navigation, A11y } from "swiper/modules";
+import { useEffect, useState } from "react";
+import { ProductsCard } from "../Products card/ProductsCard";
+import "swiper/css";
+import "swiper/css/pagination";
+import "./styles.css";
+import { newArrival } from "@/store/data";
+import {
+  MdKeyboardArrowLeft,
+  MdOutlineKeyboardArrowRight,
+} from "react-icons/md";
 
 const ArrowSwiper: React.FC = () => {
   const swiper = useSwiper();
@@ -25,17 +35,6 @@ const ArrowSwiper: React.FC = () => {
     </div>
   );
 };
-
-import { useEffect, useState } from "react";
-import { ProductsCard } from "../Products card/ProductsCard";
-import "swiper/css";
-import "swiper/css/pagination";
-import "./styles.css";
-import { dealOfTheDay } from "@/store/data";
-import {
-  MdKeyboardArrowLeft,
-  MdOutlineKeyboardArrowRight,
-} from "react-icons/md";
 
 export const NewArrivals = () => {
   const [days, setDays] = useState(9);
@@ -104,7 +103,7 @@ export const NewArrivals = () => {
                 <ArrowSwiper />
               </div>
             </div>
-            {dealOfTheDay.map((item) => (
+            {newArrival.map((item) => (
               <SwiperSlide className="flex-col" key={item.id}>
                 <ProductsCard
                   id={item.id}

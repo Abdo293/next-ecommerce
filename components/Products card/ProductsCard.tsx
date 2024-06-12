@@ -155,13 +155,17 @@ export const ProductsCard: React.FC<IProduct> = ({
           </div>
         )}
         <div className="flex items-center flex-col relative cards-img">
-          <Link href={`/product/${id}`}>
+          <Link
+            href={`/product/${id}`}
+            className="h-[300px] flex items-center justify-center p-2"
+          >
             <Image
               src={img}
-              width={300}
-              height={300}
+              width={250}
+              height={250}
               alt="trending products"
               onClick={handleSelectProduct}
+              className="object-cover"
             />
           </Link>
 
@@ -180,7 +184,7 @@ export const ProductsCard: React.FC<IProduct> = ({
             <Button
               onClick={handleToggleCompare}
               className={
-                isCompare ? `bg-[#0C55AA] text-white` : "bg-white text-black"
+                isCompare ? "bg-[#0C55AA] text-white" : "bg-white text-black"
               }
             >
               <MyTooltip
@@ -200,13 +204,14 @@ export const ProductsCard: React.FC<IProduct> = ({
               </DialogTrigger>
               <DialogContent className="sm:max-w-[800px] overflow-hidden">
                 {viewProductData && (
-                  <div className=" flex gap-5 items-center max-md:flex-col">
+                  <div className="flex gap-5 items-center max-md:flex-col">
                     <div className="w-1/2 max-md:w-full">
                       <Image
                         src={viewProductData.img}
                         width={300}
                         height={300}
                         alt={viewProductData.title}
+                        className="max-w-[300px] max-h-[300px] w-full h-auto object-cover"
                       />
                     </div>
                     <div className="w-1/2 max-md:w-full">
@@ -229,7 +234,7 @@ export const ProductsCard: React.FC<IProduct> = ({
                             <FaStar className="text-[#FFB342]" />
                             <FaStar className="text-[#FFB342]" />
                             <FaStar className="text-gray-400" />
-                            <p className="pl-2">
+                            <p className="pl-2 text-sm">
                               ({viewProductData.reviews} reviews)
                             </p>
                           </div>
@@ -288,7 +293,7 @@ export const ProductsCard: React.FC<IProduct> = ({
             <Button
               onClick={handleToggleFavorite}
               className={
-                isFavorite ? `bg-[#0C55AA] text-white` : "bg-white text-black"
+                isFavorite ? "bg-[#0C55AA] text-white" : "bg-white text-black"
               }
             >
               <MyTooltip

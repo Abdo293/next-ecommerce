@@ -4,18 +4,6 @@ import { ProductsCard } from "../Products card/ProductsCard";
 import { trendingProducts } from "@/store/data";
 
 export const TrendingProducts = () => {
-  interface IProducts {
-    id: number;
-    img: string;
-    cat: string;
-    title: string;
-    price: number;
-    reviews: number;
-    type: string;
-    badge: string;
-    sale?: number;
-  }
-
   const [mainProducts, setMainProducts] = useState<IProducts[]>([]);
   const [products, setProducts] = useState<IProducts[]>([]);
 

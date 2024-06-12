@@ -50,6 +50,7 @@ export const Cart = () => {
       return total + item.price * item.quantity;
     }, 0);
   };
+
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -72,16 +73,16 @@ export const Cart = () => {
                 key={item.id}
               >
                 <div className="flex gap-4">
-                  <div>
+                  <div className="w-[30%] h-[80px] border p-1 flex items-center justify-center">
                     <Image
                       src={item.img}
-                      width={70}
-                      height={70}
+                      width={90}
+                      height={90}
                       alt="cart img"
-                      className="border"
+                      className="object-cover w-[80px] h-[70px]"
                     />
                   </div>
-                  <div>
+                  <div className="w-[70%]">
                     <p className="font-medium text-base">{item.title}</p>
                     <div className="flex items-center justify-between px-3 mt-3 border w-[90px] h-[40px] rounded-full">
                       <span>
