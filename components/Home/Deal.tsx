@@ -3,32 +3,14 @@ import { useEffect, useState } from "react";
 import { ProductsCard } from "../Products card/ProductsCard";
 import { Button } from "../ui/button";
 import { FaArrowRight } from "react-icons/fa6";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-
 import "./styles.css";
-
-// import required modules
 import { Pagination } from "swiper/modules";
 import { dealOfTheDay } from "@/store/data";
 
 export const Deal = () => {
-  interface IProducts {
-    id: number;
-    img: string;
-    cat: string;
-    title: string;
-    price: number;
-    reviews: number;
-    type: string;
-    badge: string;
-    sale?: number;
-  }
-
   const [days, setDays] = useState(9);
   const [hours, setHours] = useState(11);
   const [minutes, setMinutes] = useState(47);

@@ -36,7 +36,7 @@ export const CategoryDropdown = () => {
             </div>
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="!w-full">
+        <DropdownMenuContent className="!w-full z-[1000]">
           <DropdownMenuItem>
             <MdOutlineHome className="mr-2 text-[25px]" />
             <Link href={"/sub-categories/new-arrivals"}>New Arrivals</Link>

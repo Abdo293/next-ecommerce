@@ -47,7 +47,7 @@ export const DrawerLinks = () => {
             </li>
             <li className="border-b pb-3">
               <Link
-                href={"/"}
+                href={"/shop"}
                 className="transition-all duration-300 hover:text-[#0c55aa]"
               >
                 Shop
@@ -55,23 +55,15 @@ export const DrawerLinks = () => {
             </li>
             <li className="border-b pb-3">
               <Link
-                href={"/"}
+                href={"/vendors"}
                 className="transition-all duration-300 hover:text-[#0c55aa]"
               >
                 Vendors
               </Link>
             </li>
-            <li className="border-b pb-3">
-              <Link
-                href={"/"}
-                className="transition-all duration-300 hover:text-[#0c55aa]"
-              >
-                Blog
-              </Link>
-            </li>
             <li>
               <Link
-                href={"/"}
+                href={"/contact"}
                 className="transition-all duration-300 hover:text-[#0c55aa]"
               >
                 Contacts

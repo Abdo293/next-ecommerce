@@ -14,63 +14,9 @@ import "./styles.css";
 
 // import required modules
 import { Pagination } from "swiper/modules";
+import { computerSection } from "@/store/data";
 
 export const ComputeSection = () => {
-  interface IProducts {
-    id: number;
-    img: string;
-    cat: string;
-    title: string;
-    price: number;
-    reviews: number;
-    type: string;
-    badge: string;
-    sale?: number;
-  }
-  const data: IProducts[] = [
-    {
-      id: 1,
-      img: "/product-5-600x600.jpg",
-      cat: "GoPro",
-      title: "Sonos Beam Gen 2 Soundbar",
-      price: 930.0,
-      reviews: 8,
-      type: "sale",
-      badge: "sale",
-      sale: 44,
-    },
-    {
-      id: 2,
-      img: "/product-19-600x600.jpg",
-      cat: "Global Office",
-      title: "Bose Smart Soundbar 900",
-      price: 689.0,
-      reviews: 9,
-      type: "featured",
-      badge: "hot",
-    },
-    {
-      id: 3,
-      img: "/product-17-600x600.jpg",
-      cat: "Young Shop",
-      title: "JBL Bar 9.1 Soundbar with Dolby Atmos",
-      price: 1464.0,
-      reviews: 10,
-      type: "trending",
-      badge: "sale",
-      sale: 44,
-    },
-    {
-      id: 4,
-      img: "/product-7-600x600.jpg",
-      cat: "StarKist",
-      title: "Sony HT-A9 Home Theater System",
-      price: 294.0,
-      reviews: 8,
-      type: "top reated",
-      badge: "hot",
-    },
-  ];
   return (
     <div className="container mx-auto flex gap-5 py-8 max-lg:flex-col computer-sec">
       <div className="w-[30%] flex flex-col max-lg:w-full">
@@ -138,7 +84,7 @@ export const ComputeSection = () => {
 
       <div className="w-[70%] max-lg:w-full">
         <div className="grid g xl:grid-cols-3 lg:grid-cols-2 max-md:grid-cols-1 gap-5 computer-cards">
-          {data.map((item) => (
+          {computerSection.map((item) => (
             <ProductsCard
               key={item.id}
               id={item.id}

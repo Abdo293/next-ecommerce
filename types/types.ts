@@ -44,3 +44,14 @@ interface IStore {
   email: string;
   img: string;
 }
+
+interface ITopRated {
+  img: string;
+  cat: string;
+  title: string;
+  price: number;
+  reviews: number;
+}
+interface ProductComponentProps extends ITopRated {
+  index: number;
+}

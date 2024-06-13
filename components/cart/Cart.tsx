@@ -65,77 +65,98 @@ export const Cart = () => {
         <SheetHeader>
           <SheetTitle>Shopping Cart</SheetTitle>
         </SheetHeader>
-        <div className="mt-5">
-          {products.length > 0 &&
-            products.map((item: ICart) => (
-              <div
-                className="flex justify-between mb-3 mt-5 border-b pb-3"
-                key={item.id}
-              >
-                <div className="flex gap-4">
-                  <div className="w-[30%] h-[80px] border p-1 flex items-center justify-center">
-                    <Image
-                      src={item.img}
-                      width={90}
-                      height={90}
-                      alt="cart img"
-                      className="object-cover w-[80px] h-[70px]"
-                    />
-                  </div>
-                  <div className="w-[70%]">
-                    <p className="font-medium text-base">{item.title}</p>
-                    <div className="flex items-center justify-between px-3 mt-3 border w-[90px] h-[40px] rounded-full">
-                      <span>
-                        <TiMinus
-                          className="cursor-pointer"
-                          onClick={() => decreaseQuantity(item.id)}
-                        />
-                      </span>
-                      <span>{item.quantity}</span>
-                      <span>
-                        <TiPlus
-                          className="cursor-pointer"
-                          onClick={() => increaseQuantity(item.id)}
-                        />
-                      </span>
-                    </div>
-                    <p className="text-[#0c55aa] pt-3 font-medium text-sm">
-                      ${item.price}
-                    </p>
-                  </div>
-                </div>
-                <div>
-                  <button
-                    className="cursor-pointer"
-                    onClick={() => dispatch(removeItem(item.id))}
-                  >
-                    <HiOutlineXMark className="text-red-700" />
-                  </button>
-                </div>
-              </div>
-            ))}
-        </div>
-
-        <SheetFooter className="!w-full block">
-          <div className="flex justify-between">
-            <p className="font-medium">Subtotal:</p>
-            <p className="font-medium">${totalPrice()}</p>
-          </div>
+        {products.length > 0 ? (
           <div>
+            <div className="mt-5">
+              {products.length > 0 &&
+                products.map((item: ICart) => (
+                  <div
+                    className="flex justify-between mb-3 mt-5 border-b pb-3"
+                    key={item.id}
+                  >
+                    <div className="flex gap-4">
+                      <div className="w-[30%] h-[80px] border p-1 flex items-center justify-center">
+                        <Image
+                          src={item.img}
+                          width={90}
+                          height={90}
+                          alt="cart img"
+                          className="object-cover w-[80px] h-[70px]"
+                        />
+                      </div>
+                      <div className="w-[70%]">
+                        <p className="font-medium text-base">{item.title}</p>
+                        <div className="flex items-center justify-between px-3 mt-3 border w-[90px] h-[40px] rounded-full">
+                          <span>
+                            <TiMinus
+                              className="cursor-pointer"
+                              onClick={() => decreaseQuantity(item.id)}
+                            />
+                          </span>
+                          <span>{item.quantity}</span>
+                          <span>
+                            <TiPlus
+                              className="cursor-pointer"
+                              onClick={() => increaseQuantity(item.id)}
+                            />
+                          </span>
+                        </div>
+                        <p className="text-[#0c55aa] pt-3 font-medium text-sm">
+                          ${item.price}
+                        </p>
+                      </div>
+                    </div>
+                    <div>
+                      <button
+                        className="cursor-pointer"
+                        onClick={() => dispatch(removeItem(item.id))}
+                      >
+                        <HiOutlineXMark className="text-red-700" />
+                      </button>
+                    </div>
+                  </div>
+                ))}
+            </div>
+
+            <SheetFooter className="!w-full block">
+              <div className="flex justify-between">
+                <p className="font-medium">Subtotal:</p>
+                <p className="font-medium">${totalPrice()}</p>
+              </div>
+              <div>
+                <Link
+                  href={"/"}
+                  className="block w-full text-center py-3 text-white bg-[#010f1c] mt-8 transition-colors duration-500 hover:bg-[#0c55aa]"
+                >
+                  Checkout
+                </Link>
+                <Link
+                  href={"/veiw-cart"}
+                  className="block w-full text-center py-3 border border-black mt-3 transition-colors duration-500 hover:bg-[#0c55aa] hover:text-white hover:border-white"
+                >
+                  View Cart
+                </Link>
+              </div>
+            </SheetFooter>
+          </div>
+        ) : (
+          <div className="">
+            <Image
+              src={"/empty-cart.png"}
+              width={250}
+              height={250}
+              alt="empty cart"
+              className="mt-[150px] mx-auto"
+            />
+            <p className="text-center pt-5 text-lg">Your Cart Is Empty</p>
             <Link
-              href={"/"}
-              className="block w-full text-center py-3 text-white bg-[#010f1c] mt-8 transition-colors duration-500 hover:bg-[#0c55aa]"
+              href={"/shop"}
+              className="block text-center w-fit mx-auto px-8 py-3 border border-black mt-3 transition-colors duration-500 hover:bg-[#010f1c] hover:text-white hover:border-white"
             >
-              Checkout
-            </Link>
-            <Link
-              href={"/veiw-cart"}
-              className="block w-full text-center py-3 border border-black mt-3 transition-colors duration-500 hover:bg-[#0c55aa] hover:text-white hover:border-white"
-            >
-              View Cart
+              Go To Shop
             </Link>
           </div>
-        </SheetFooter>
+        )}
       </SheetContent>
     </Sheet>
   );

@@ -39,3 +39,7 @@ img.scale:hover {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.contact:hover .social-contact {
+  color: #fff;
+}
