@@ -31,7 +31,7 @@ const Page = ({
         </p>
       </div>
 
-      <div className="mt-5 container mx-auto flex gap-5 mb-16">
+      <div className="mt-5 container mx-auto flex gap-5 mb-16 max-[992px]:flex-col">
         <div className="w-[20%] max-md:w-full">
           <ShopLayout />
         </div>

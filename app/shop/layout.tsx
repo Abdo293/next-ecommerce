@@ -15,7 +15,7 @@ const Page = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <div>
+    <div className="mt-10">
       <div className="categories-section">
         <p className="container mx-auto flex items-center h-full text-[28px] font-medium">
           Shop
@@ -26,7 +26,7 @@ const Page = ({
         <Categories />
       </div>
 
-      <div className="mt-5 container mx-auto flex gap-5 mb-16">
+      <div className="mt-5 container mx-auto flex gap-5 mb-16 max-[992px]:flex-col">
         <div className="w-[20%] max-md:w-full">
           <p className="text-lg font-medium border-b pb-2">Categories</p>
           <ul className="pt-2">
