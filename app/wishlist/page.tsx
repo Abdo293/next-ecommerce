@@ -78,7 +78,7 @@ const Wishlist = () => {
                           className="cursor-pointer"
                         />
                       </span>
-                      <span>{item.quantity}</span>
+                      <span>{quantities[item.id] || item.quantity}</span>
                       <span>
                         <TiPlus
                           onClick={() => handleIncreaseQuantity(item.id)}
