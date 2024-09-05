@@ -29,7 +29,7 @@ export const TrendingProducts = () => {
   return (
     <div className="trending container mx-auto">
       <div className="flex justify-between items-center py-8 max-lg:flex-col">
-        <h3 className="text-[36px] font-bold max-md:text-[14px]">
+        <h3 className="text-[36px] font-bold max-md:text-[24px]">
           <span className="text-[#0c55aa]">Trending</span> <span>Products</span>
         </h3>
         <span className="w-1/4 h-[2px] bg-gray-200 max-lg:hidden"></span>
@@ -39,7 +39,7 @@ export const TrendingProducts = () => {
               setActive("all");
               setProducts(mainProducts);
             }}
-            className={`cursor-pointer text-lg max-md:text-base ${
+            className={`cursor-pointer text-lg max-md:text-[14px] ${
               currentActive === "all" ? "active" : null
             }`}
           >
@@ -50,7 +50,7 @@ export const TrendingProducts = () => {
               setActive("featured");
               productFilter("featured");
             }}
-            className={`cursor-pointer text-lg max-md:text-base ${
+            className={`cursor-pointer text-lg max-md:text-[14px] ${
               currentActive === "featured" ? "active" : null
             }`}
           >
@@ -61,7 +61,7 @@ export const TrendingProducts = () => {
               setActive("sale");
               productFilter("sale");
             }}
-            className={`cursor-pointer text-lg max-md:text-base ${
+            className={`cursor-pointer text-lg max-md:text-[14px] ${
               currentActive === "sale" ? "active" : null
             }`}
           >
@@ -72,7 +72,7 @@ export const TrendingProducts = () => {
               setActive("trending");
               productFilter("trending");
             }}
-            className={`cursor-pointer text-lg max-md:text-base ${
+            className={`cursor-pointer text-lg max-md:text-[14px] ${
               currentActive === "trending" ? "active" : null
             }`}
           >
@@ -83,7 +83,7 @@ export const TrendingProducts = () => {
               setActive("topRated");
               productFilter("top reated");
             }}
-            className={`cursor-pointer text-lg max-md:text-base ${
+            className={`cursor-pointer text-lg max-md:text-[14px] ${
               currentActive === "topRated" ? "active" : null
             }`}
           >

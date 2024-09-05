@@ -18,16 +18,20 @@ const ProductComponent: React.FC<ProductComponentProps> = ({
       <div className="mr-[25px] flex-shrink-0">
         <img src={img} alt="img" className="w-[140px] rounded" />
       </div>
-      <div className="flex-1">
+      <div className="flex-1 max-md:mt-2">
         <p className="text-xs">{cat}</p>
         <p className="text-[15px] font-medium">{title}</p>
-        <div className="flex items-center pt-2 pb-1">
-          <FaStar className="text-[#FFB342]" />
-          <FaStar className="text-[#FFB342]" />
-          <FaStar className="text-[#FFB342]" />
-          <FaStar className="text-[#FFB342]" />
-          <FaStar className="text-gray-400" />
-          <p className="pl-2 font-medium text-xs">({reviews} reviews)</p>
+        <div className="flex items-center max-md:flex-col max-md:items-start justify-start">
+          <div className="flex items-center pt-2 pb-1">
+            <FaStar className="text-[#FFB342]" />
+            <FaStar className="text-[#FFB342]" />
+            <FaStar className="text-[#FFB342]" />
+            <FaStar className="text-[#FFB342]" />
+            <FaStar className="text-gray-400" />
+          </div>
+          <p className="pl-2 max-md:pl-0 font-medium text-xs">
+            ({reviews} reviews)
+          </p>
         </div>
         <p className="text-[#0c55aa] font-bold text-[15px]">${price}</p>
       </div>

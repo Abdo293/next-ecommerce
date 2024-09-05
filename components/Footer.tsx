@@ -27,9 +27,9 @@ export const Footer = () => {
               <Input
                 type="text"
                 placeholder="Enter Your Email"
-                className="rounded-none focus:!outline-none !border-none bg-white rounded-s h-[60px] placeholder:text-gray-500 w-full"
+                className="rounded-none max-md:h-[45px] focus:!outline-none !border-none bg-white rounded-s h-[60px] placeholder:text-gray-500 w-full"
               />
-              <Button className="bg-[#010F1C] rounded-none text-white rounded-e h-[60px] hover:bg-[#010F1C]">
+              <Button className="bg-[#010F1C] max-md:h-[45px] rounded-none text-white rounded-e h-[60px] hover:bg-[#010F1C]">
                 Subscribe
               </Button>
             </div>

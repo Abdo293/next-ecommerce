@@ -6,7 +6,7 @@ import React from "react";
 const Shop = () => {
   return (
     <div>
-      <div className="grid xl:grid-cols-3 lg:grid-cols-2 sm:grid-cols-1 gap-5">
+      <div className="grid xl:grid-cols-3 lg:grid-cols-2 max-md:grid-cols-1 gap-3">
         {shop.map((item, index) => (
           <ProductsCard
             key={index}

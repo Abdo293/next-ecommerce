@@ -43,48 +43,42 @@ const Wishlist = () => {
         </div>
       </div>
 
-      <div className="container mx-auto flex items-center gap-4 my-8">
+      <div className="container mx-auto my-8 overflow-x-auto">
         {wishlist.length > 0 ? (
-          <table className="w-full">
+          <table className="max-lg:w-[1000px] w-full text-sm sm:text-base">
             <thead>
               <tr className="bg-[#F1F3F4] text-left">
-                <th className="py-3 pl-5 w-[44%]">Product</th>
-                <th className="py-3">Price</th>
-                <th className="py-3">Quantity</th>
-                <th className="py-3">Action</th>
+                <th className="py-2 sm:py-3 pl-5 w-[44%]">Product</th>
+                <th className="py-2 sm:py-3">Price</th>
+                <th className="py-2 sm:py-3">Quantity</th>
+                <th className="py-2 sm:py-3">Action</th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
               {wishlist.map((item: ICart) => (
                 <tr key={item.id}>
-                  <td className="flex items-center gap-3">
-                    <span>
-                      <Image
-                        src={item.img}
-                        width={70}
-                        height={70}
-                        alt="cart img"
-                      />
-                    </span>
+                  <td className="flex items-center gap-2 sm:gap-3">
+                    <Image
+                      src={item.img}
+                      width={70}
+                      height={70}
+                      alt="cart img"
+                    />
                     <span>{item.title}</span>
                   </td>
                   <td>${item.price}</td>
                   <td>
-                    <div className="flex items-center justify-between px-3 border w-[90px] h-[40px] rounded-full">
-                      <span>
-                        <TiMinus
-                          onClick={() => handleDecreaseQuantity(item.id)}
-                          className="cursor-pointer"
-                        />
-                      </span>
+                    <div className="flex items-center justify-between px-3 border w-[70px] sm:w-[90px] h-[40px] rounded-full">
+                      <TiMinus
+                        onClick={() => handleDecreaseQuantity(item.id)}
+                        className="cursor-pointer"
+                      />
                       <span>{quantities[item.id] || item.quantity}</span>
-                      <span>
-                        <TiPlus
-                          onClick={() => handleIncreaseQuantity(item.id)}
-                          className="cursor-pointer"
-                        />
-                      </span>
+                      <TiPlus
+                        onClick={() => handleIncreaseQuantity(item.id)}
+                        className="cursor-pointer"
+                      />
                     </div>
                   </td>
                   <td>
