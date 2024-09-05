@@ -29,7 +29,7 @@ export const TrendingProducts = () => {
   return (
     <div className="trending container mx-auto">
       <div className="flex justify-between items-center py-8 max-lg:flex-col">
-        <h3 className="text-[36px] font-bold max-md:text-[24px]">
+        <h3 className="text-[36px] font-bold max-md:text-[14px]">
           <span className="text-[#0c55aa]">Trending</span> <span>Products</span>
         </h3>
         <span className="w-1/4 h-[2px] bg-gray-200 max-lg:hidden"></span>

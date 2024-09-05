@@ -143,8 +143,8 @@ export const ProductsCard: React.FC<IProduct> = ({
   };
   /* end product details */
   return (
-    <div className="max-lg:flex max-lg:justify-center max-lg:items-center w-full">
-      <div className="border rounded relative z-10 transition-all duration-500 hover:shadow-xl products-box bg-white products-card">
+    <div className="">
+      <div className="border max-lg:flex-1 rounded relative z-10 transition-all duration-500 hover:shadow-xl products-box bg-white products-card">
         {badge === "sale" ? (
           <div className="absolute right-5 top-3 z-50 sale">
             <Badge>-{sale}%</Badge>
