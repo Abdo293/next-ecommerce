@@ -35,7 +35,7 @@ const Page = ({
   };
 
   return (
-    <div>
+    <div className="mt-10">
       <div className="categories-section">
         <p className="container mx-auto flex items-center h-full text-[28px] font-medium">
           {getTitle()}
