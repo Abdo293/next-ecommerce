@@ -125,7 +125,7 @@ export const Cart = () => {
               </div>
               <div>
                 <Link
-                  href={"/"}
+                  href={"/checkout"}
                   className="block w-full text-center py-3 text-white bg-[#010f1c] mt-8 transition-colors duration-500 hover:bg-[#0c55aa]"
                 >
                   Checkout

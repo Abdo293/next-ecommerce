@@ -115,7 +115,7 @@ const ViewCart = () => {
           </div>
 
           <Link
-            href={"/"}
+            href={"/checkout"}
             className="block w-full text-center py-3 text-white mt-3 bg-[#010f1c] transition-colors duration-500 hover:bg-[#0c55aa]"
           >
             Proceed to checkout

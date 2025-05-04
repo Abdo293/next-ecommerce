@@ -6,12 +6,6 @@ import { IoCartOutline } from "react-icons/io5";
 import { IoGitCompareOutline } from "react-icons/io5";
 import { IoEyeOutline } from "react-icons/io5";
 import { IoHeartOutline } from "react-icons/io5";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import Link from "next/link";
@@ -22,34 +16,12 @@ import { TiPlus } from "react-icons/ti";
 import { selectProduct } from "@/store/productDetailsSlice";
 import { addFavorite, removeFavorite } from "@/store/favoritesSlice";
 import { addCompare, removeCompare } from "@/store/compareSlice";
+import { useRouter } from "next/navigation"; // Import useRouter
+import { MyTooltip } from "./MyTooltip";
 
 interface IProduct extends IProducts {
   children?: ReactNode;
 }
-
-/* tooltip */
-interface ITooltipData {
-  icon: ReactNode;
-  txt: string;
-}
-
-export const MyTooltip: React.FC<ITooltipData> = ({ icon, txt }) => {
-  return (
-    <div className="border-b p-2 cursor-pointer transition-all duration-500 hover:bg-[#0c55aa] hover:text-white">
-      <TooltipProvider skipDelayDuration={300} delayDuration={300}>
-        <Tooltip delayDuration={0}>
-          <TooltipTrigger asChild>
-            <span>{icon}</span>
-          </TooltipTrigger>
-          <TooltipContent side="left" sideOffset={20}>
-            <p>{txt}</p>
-          </TooltipContent>
-        </Tooltip>
-      </TooltipProvider>
-    </div>
-  );
-};
-/* end tooltip */
 
 export const ProductsCard: React.FC<IProduct> = ({
   id,
@@ -64,6 +36,8 @@ export const ProductsCard: React.FC<IProduct> = ({
   children,
 }) => {
   const dispatch = useDispatch();
+  const router = useRouter(); // Initialize useRouter
+
   /* wish list */
   const wishlist = useSelector((state: any) => state.favorites?.favorites);
   const isFavorite = wishlist.some((product: ICart) => product.id === id);
@@ -100,6 +74,23 @@ export const ProductsCard: React.FC<IProduct> = ({
         quantity,
       };
       dispatch(addToCart(productToAdd));
+    }
+  };
+
+  // Buy Now function - add to cart and navigate to checkout
+  const handleBuyNow = (quantity: number) => {
+    if (quantity > 0) {
+      const productToAdd: ICart = {
+        id,
+        img,
+        title,
+        price,
+        quantity,
+      };
+      // Add the product to cart first
+      dispatch(addToCart(productToAdd));
+      // Then navigate to checkout
+      router.push("/checkout");
     }
   };
 
@@ -275,7 +266,11 @@ export const ProductsCard: React.FC<IProduct> = ({
                           Add To Cart
                         </button>
                       </div>
-                      <button className="mt-3 text-center w-full bg-[#0C55AA] py-[13px] px-[30px] text-white font-medium transition-colors duration-500 hover:bg-[#010f1c]">
+                      {/* Updated Buy Now button to use handleBuyNow function */}
+                      <button
+                        onClick={() => handleBuyNow(quantity)}
+                        className="mt-3 text-center w-full bg-[#0C55AA] py-[13px] px-[30px] text-white font-medium transition-colors duration-500 hover:bg-[#010f1c]"
+                      >
                         Buy Now
                       </button>
                     </div>
